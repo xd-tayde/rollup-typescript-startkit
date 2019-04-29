@@ -14,7 +14,7 @@ const packages = require('./package.json')
 const env = process.env.NODE_ENV
 // 路径配置
 const paths = {
-    input: env === 'example' ? './example/' : './src/',
+    input: env === 'example' ? './example/' : './lib/',
     dist: env === 'example' ? './example/dist/' : './dist/',
 }
 

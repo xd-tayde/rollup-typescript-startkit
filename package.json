@@ -1,16 +1,15 @@
 {
-	"name": "easy-redux-react",
+	"name": "rollup-typescript-startkit",
 	"version": "1.0.0",
-	"description": "the helper to make use redux easier with react.",
+	"description": "the simple rollup-typescript startkit aims to develop the javascript lib.",
 	"keywords": [
-		"easy-redux",
-		"easy-react-redux",
-		"react-redux-helper",
-		"redux-react-helper"
+		"rollup",
+		"rollup-startkit",
+		"rollup-typescript",
+		"rollup-example",
+		"typescript"
 	],
-	"main": "dist/easy-redux-react.js",
-	"module": "dist/easy-redux-react.es.js",
-	"moduleName": "easy-redux-react",
+	"main": "dist/rollup-typescript-startkit.js",
 	"scripts": {
 		"reload": "./node_modules/.bin/livereload 'example/'",
 		"watch": "NODE_ENV=example rollup -w -c rollup.config.js",
@@ -20,7 +19,7 @@
 		"publish": "rm -rf dist && npm-run-all --parallel pre prod"
 	},
 	"repository": {
-		"url": "https://github.com/xd-tayde/easy-redux-react",
+		"url": "https://github.com/xd-tayde/rollup-typescript-startkit",
 		"type": "git"
 	},
 	"author": "gxd",
