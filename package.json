@@ -16,7 +16,7 @@
 		"dev": "npm-run-all --parallel reload watch",
 		"pre": "NODE_ENV=development rollup -c rollup.config.js",
 		"prod": "NODE_ENV=production rollup -c rollup.config.js",
-		"publish": "rm -rf dist && npm-run-all --parallel pre prod"
+		"publish": "rm -rf dist && npm-run-all --parallel prod"
 	},
 	"repository": {
 		"url": "https://github.com/xd-tayde/rollup-typescript-startkit",
