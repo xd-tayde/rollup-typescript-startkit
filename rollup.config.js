@@ -7,6 +7,7 @@ import typescript from 'rollup-plugin-typescript'
 import sass from 'rollup-plugin-sass'
 import serve from 'rollup-plugin-serve'
 import replace from 'rollup-plugin-replace'
+import globals from 'rollup-plugin-node-globals'
 
 // 包配置
 const packages = require('./package.json')
@@ -73,7 +74,8 @@ const Config = {
             open: true,
         })),
         (env === 'production' && uglify()),
-        sourcemaps(),
+        (env === 'production' && sourcemaps()),
+        globals(),
     ],
 }
 
