@@ -8,6 +8,7 @@ import sass from 'rollup-plugin-sass'
 import serve from 'rollup-plugin-serve'
 import replace from 'rollup-plugin-replace'
 import globals from 'rollup-plugin-node-globals'
+import image from 'rollup-plugin-img'
 
 // 包配置
 const packages = require('./package.json')
@@ -47,6 +48,9 @@ const Config = {
         intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
     },
     plugins: [
+        image({
+            limit: 5000,
+        }),
         // babel 编译
         babel({
             exclude: 'node_modules/**', 
