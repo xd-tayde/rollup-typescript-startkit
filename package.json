@@ -1,6 +1,6 @@
 {
 	"name": "rollup-typescript-startkit",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "the simple rollup-typescript startkit aims to develop the javascript lib.",
 	"keywords": [
 		"rollup",
@@ -10,7 +10,7 @@
 		"typescript"
 	],
 	"main": "dist/rollup-typescript-startkit.js",
-	"module": "dist/mcanvas.es.js",
+	"module": "dist/rollup-typescript-startkit.es.js",
 	"moduleName": "RollupTypescriptStartkit",
 	"scripts": {
 		"reload": "./node_modules/.bin/livereload 'example/'",
@@ -46,6 +46,8 @@
 		"rollup": "^1.10.1",
 		"rollup-plugin-babel": "^4.3.2",
 		"rollup-plugin-commonjs": "^9.2.2",
+		"rollup-plugin-img": "^1.1.0",
+		"rollup-plugin-json": "^4.0.0",
 		"rollup-plugin-node-globals": "^1.4.0",
 		"rollup-plugin-node-resolve": "^4.0.1",
 		"rollup-plugin-replace": "^2.2.0",

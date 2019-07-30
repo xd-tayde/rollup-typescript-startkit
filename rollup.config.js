@@ -9,6 +9,7 @@ import serve from 'rollup-plugin-serve'
 import replace from 'rollup-plugin-replace'
 import globals from 'rollup-plugin-node-globals'
 import image from 'rollup-plugin-img'
+import json from 'rollup-plugin-json'
 
 // 包配置
 const packages = require('./package.json')
@@ -37,19 +38,26 @@ switch (env) {
         break
 }
 
+if (fileName.includes('/')) {
+    fileName = fileName.split('/')[1]
+}
+
 const Config = {
     input: `${paths.input}index`,
     output: {
         file: `${paths.dist}${fileName}.js`,
         format: env === 'es' ? 'es' : 'umd',
-        name: 'MCanvas',
+        name: 'RollupTypescriptStartkit',
         sourcemap: true,
         // 连接 livereload 
         intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
     },
     plugins: [
         image({
+            output: `${paths.dist}/images`,
+            extensions: /\.(png|jpg|jpeg|gif|svg)$/,
             limit: 5000,
+            exclude: 'node_modules/**'
         }),
         // babel 编译
         babel({
@@ -60,7 +68,7 @@ const Config = {
             plugins: [],
           }),
         resolve({
-            extensions: [ '.ts', '.js', '.json', '.node' ],
+            extensions: [ '.ts', 'tsx', '.js', '.json', '.node' ],
         }),
         commonjs(),
         typescript(),
@@ -80,6 +88,7 @@ const Config = {
         (env === 'production' && uglify()),
         (env === 'production' && sourcemaps()),
         globals(),
+        json(),
     ],
 }
 
