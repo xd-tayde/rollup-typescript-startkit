@@ -47,7 +47,7 @@ const Config = {
     output: {
         file: `${paths.dist}${fileName}.js`,
         format: env === 'es' ? 'es' : 'umd',
-        name: 'RollupTypescriptStartkit',
+        name: packages.moduleName,
         sourcemap: true,
         // 连接 livereload 
         intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',

@@ -3,6 +3,7 @@
 
 # production
 /build
+/dist
 /output
 /output_resource
 # misc
