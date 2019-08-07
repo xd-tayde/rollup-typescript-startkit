@@ -29,7 +29,13 @@
         "no-unused-expression": [true, "allow-fast-null-checks"],
         "member-ordering":[false],
         "jsx-boolean-value":false,
-        "prefer-const": false
+        "prefer-const": false,
+        "max-line-length": false,
+        "no-namespace": false,
+        "interface-name": false,
+        "quotemark": false,
+        "radix": false,
+        "no-trailing-whitespace": false
     },
     "jsRules": {
         "object-literal-sort-keys": false,

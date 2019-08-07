@@ -10,6 +10,7 @@ import replace from 'rollup-plugin-replace'
 import globals from 'rollup-plugin-node-globals'
 import image from 'rollup-plugin-img'
 import json from 'rollup-plugin-json'
+import builtins from 'rollup-plugin-node-builtins'
 
 // 包配置
 const packages = require('./package.json')
@@ -52,6 +53,7 @@ const Config = {
         // 连接 livereload 
         intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
     },
+    external: env === 'example' ? [] : ['@amoy/query', 'pixi.js'],
     plugins: [
         image({
             output: `${paths.dist}/images`,
@@ -69,6 +71,7 @@ const Config = {
           }),
         resolve({
             extensions: [ '.ts', 'tsx', '.js', '.json', '.node' ],
+            preferBuiltins: false,
         }),
         commonjs(),
         typescript(),
@@ -89,6 +92,7 @@ const Config = {
         (env === 'production' && sourcemaps()),
         globals(),
         json(),
+        builtins(),
     ],
 }
 
