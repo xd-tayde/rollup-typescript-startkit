@@ -1,55 +1,31 @@
-# query-components
+# rollup-typescript-startkit
 
-@amoy/query 插件，用于连接 @amoy/components，使 query 可以以 模板 + 样式 的形式进行界面的构建；
+## changeLog
 
-## 使用姿势:
+- 1.0.3 (2019-7-30)
+    - 新增 json 插件；
+    - 修复打包后文件名称出错的问题；
 
-```js
-import query from "@amoy/query"
-import QueryComponents, { style } from "@amoy/query-components"
+- 1.0.2 (2019-7-4)
+    - 新增图片加载插件；
 
-const game = new PIXI.Application()
-document.body.appendChild(game.view)
+- 1.0.1 (2019-5-9)
+    - 新增 es模块打包，解决无法被 import 引用的问题；
 
 
-const $ = query(game.stage)
+## 简介:
 
-style('container', `
-    width: 100%; 
-    height: 50%;
-    center-x: 10px; 
-    center-y: 30%; 
-    border-width: 2;
-`)
+一款基于 rollup 与 typescript 的轻量级脚手架，专注于 JavaScript 库的开发，能够满足开发库时所需要的各项功能；
 
-style({
-    sprite: `
-        width: 250px; 
-        height: 250; 
-        left: 30%; 
-        top: 30;
-        text-align: center;
-        font-size: 50px;
-    `,
-    rect: `
-        width: 250px; 
-        height: 250; 
-        right: 30; 
-        top: 30; 
-        background-color: red; 
-        border-width: 3; 
-        border-radius: 50;
-    `,
-})
+包含功能:
 
-PIXI.Loader.shared.add('rect', rect).load((loader, resources) => {
-	$(`
-		<container className="container">
-	        <sprite className="sprite" src="rect">精灵图</sprite>
-	        <rect className="rect" />
-	        <circle className="circle" />
-	        <text className="text">这是一段测试文字文字文字，它会自动换行哦~</text>
-	    </container>
-	`).appendTo(game.stage)
-})
-```
+- rollup | tree-shaking
+- typescript
+- hot-reload
+- example / debug
+- sass
+
+## 开发姿势:
+
+- `npm run dev`: 开发环境
+- `npm run publish`: 打包编译
