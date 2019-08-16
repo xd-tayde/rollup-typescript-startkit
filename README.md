@@ -1,21 +1,5 @@
 # rollup-typescript-startkit
 
-## changeLog
-
-- 1.0.4 (2019-8-7)
-    - 新增 builtins 插件，解决引用第三方库时无法加载其依赖；
-
-- 1.0.3 (2019-7-30)
-    - 新增 json 插件；
-    - 修复打包后文件名称出错的问题；
-
-- 1.0.2 (2019-7-4)
-    - 新增图片加载插件；
-
-- 1.0.1 (2019-5-9)
-    - 新增 es模块打包，解决无法被 import 引用的问题；
-
-
 ## 简介:
 
 一款基于 rollup 与 typescript 的轻量级脚手架，专注于 JavaScript 库的开发，能够满足开发库时所需要的各项功能；
@@ -28,7 +12,23 @@
 - example / debug
 - sass
 
+## 安装
+
+此处使用一个简单易用的项目初始化工具: just-cli
+
+```js
+// 命令行:
+sudo npm i just-cli -g
+
+// 添加配置
+just add -n rollup-startkit -g https://github.com/xd-tayde/rollup-typescript-startkit.git
+
+// 之后就可以通过 init 快速创建项目
+just init rollup-startkit myProject
+```
+
 ## 开发姿势:
 
+- `package.json` 中修改对应的包名称
 - `npm run dev`: 开发环境
 - `npm run publish`: 打包编译

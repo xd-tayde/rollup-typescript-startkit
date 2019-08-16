@@ -1,12 +1,13 @@
 {
 	"name": "rollup-typescript-startkit",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "the simple rollup-typescript startkit aims to develop the javascript lib.",
 	"keywords": [
 		"rollup",
 		"rollup-startkit",
 		"rollup-typescript",
 		"rollup-example",
+		"rollup-lib",
 		"typescript"
 	],
 	"main": "dist/rollup-typescript-startkit.js",
@@ -63,7 +64,6 @@
 		"tslint-react": "^4.0.0",
 		"typescript": "^3.4.5"
 	},
-	"dependencies": {
-		"mcanvas": "^1.3.8"
-	}
+	"dependencies": {},
+	"peerDependencies": {}
 }

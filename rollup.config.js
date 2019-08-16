@@ -14,12 +14,23 @@ import builtins from 'rollup-plugin-node-builtins'
 
 // 包配置
 const packages = require('./package.json')
+
+let external = []
+if (packages.peerDependencies) {
+    Object.keys(packages.peerDependencies).map((moduleName) => {
+        external.push(moduleName)
+    })
+}
 // 环境变量
 const env = process.env.NODE_ENV
+const isExample = env === 'example'
+const isProd = env === 'production'
+const isEs = env === 'es'
+
 // 路径配置
 const paths = {
-    input: env === 'example' ? './example/' : './lib/',
-    dist: env === 'example' ? './example/dist/' : './dist/',
+    input: isExample ? './example/' : './lib/',
+    dist: isExample ? './example/dist/' : './dist/',
 }
 
 // 文件名
@@ -47,12 +58,18 @@ const Config = {
     input: `${paths.input}index`,
     output: {
         file: `${paths.dist}${fileName}.js`,
-        format: env === 'es' ? 'es' : 'umd',
+        format: isEs ? 'es' : 'umd',
         name: packages.moduleName,
         sourcemap: true,
         // 连接 livereload 
-        intro: env === 'example' ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
+        intro: isExample ? `document.write('<script src="http://' + (location.host || "localhost").split(":")[0] + ':35729/livereload.js?snipver=1"></' + "script>")` : '',
+        // 可自行配置库的全局变量
+        globals: {
+            // react: 'React',
+        },
     },
+    context: 'window',
+    external: isExample ? [] : external,
     plugins: [
         image({
             output: `${paths.dist}/images`,
@@ -82,13 +99,13 @@ const Config = {
             ENV: JSON.stringify(env || 'development'),
         }),
         // 开发时开启服务
-        (env === 'example' && serve({
+        (isExample && serve({
             contentBase: './example',
             port: 3000,
             open: true,
         })),
-        (env === 'production' && uglify()),
-        (env === 'production' && sourcemaps()),
+        (isProd && uglify()),
+        (isProd && sourcemaps()),
         globals(),
         json(),
         builtins(),
