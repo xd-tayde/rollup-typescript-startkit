@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "outDir": "build/dist",
+        "outDir": "dist",
         "module": "esnext",
         "target": "es5",
         "lib": ["es6", "dom"],
@@ -23,22 +23,11 @@
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "paths": {
-        "@Client/*": ["./src/client/*"],
-        "@Components-UI/*": ["./src/client/app/components-UI/*"],
-        "@Components-BU/*": ["./src/client/app/components-BU/*"],
-        "@Tools/*": ["./src/client/app/tools/*"],
-        "@Assets/*": ["./src/client/app/assets/*"],
-        "@Src/*": ["./src/client/*"],
-        "@Config/*": ["./src/client/config/*"],
-        "@Api/*": ["./src/client/app/api/*"],
-        "@Store/*":["./src/client/app/store/*"],
-        "@Hooks/*":["./src/client/app/hooks/*"],
-        "@Typings/*":["./src/typings/*"],
-        "Server#/*":["./src/server/*"],
-        "Build#/*":["./build/*"],
+        
         }
     },
-    "exclude": [
-        
-    ],
+    "include": [
+        "lib/*",
+        "example/*"
+    ]
 }
